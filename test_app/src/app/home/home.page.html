@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+    <ion-title class="titulo">Prueba T&eacute;cnica Sanitas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+  <form novalidate (ngSubmit)="login()" [formGroup]="usuario">
+    <div id="logoIonicLogin">
+      <ion-img padding class="logo" src="../assets/images/logo.jpg"></ion-img>
+    </div>
+
+    <div padding class="botonesLogin">
+      <ion-card>
+        <ion-item class="ion-margin">
+          <ion-input name="email" id="email" type="email" formControlName="email" ngModel [email]="true" placeholder="Email" required></ion-input>
+          <ion-icon slot="end" name="person"></ion-icon>
+        </ion-item>
+
+        <ion-item class="ion-margin">
+          <ion-input name="password" placeholder="Contraseña" [type]="mostrarPassword ? 'text' : 'password'" formControlName="password" required></ion-input>
+          <ion-icon slot="end" [name]="iconoPassword" (click)="cambiarIconoPassword()"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label>Recordar</ion-label>
+          <ion-toggle color="primary"></ion-toggle>
+        </ion-item>
+        <ion-button id="botonEntrar" type="submit" color="primary" expand="block" [disabled]="usuario.invalid">Acceder</ion-button>
+      </ion-card>
+    </div>
+    
+  </form>
+  
+</ion-content>
